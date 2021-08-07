@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Use of Angularjs Service</title>
+    </head>
+    <body ng-app="mod" ng-controller="Controller">
+        <h1>Clock</h1>
+        <h1>{{theTime}}</h1>
+        <script src="angular.js"></script>
+        <script>
+            angular.module('mod', [])
+                    .controller('Controller', function($scope, $interval) {
+                            $scope.theTime = new Date().toLocaleTimeString();
+                            $interval(function () {
+                                $scope.theTime = new Date().toLocaleTimeString();
+                            }, 1000);
+                    });
+        </script>
+    </body>
+</html>

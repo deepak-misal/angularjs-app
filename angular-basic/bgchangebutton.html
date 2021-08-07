@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Background color change</title>
+        <style>
+            .red{
+                background-color: red;
+            }
+            .blue{
+                background-color: blue;
+            }
+
+        </style>
+    </head>
+    <body ng-app="modBg" ng-controller="BgController">
+        <button ng-click="red()">Red</button>
+        <button ng-click="blue()">Blue</button>
+        <script src="angular.js"></script>
+        <script>
+            angular.module('modBg',[])
+                   .controller('BgController',['$scope',function($scope){
+                       $scope.red=function(){
+                            $scope.class="red";
+                       };
+                       $scope.blue=function(){
+                            $scope.class="blue";
+                       };
+                   }])
+        </script>
+    </body>
+</html>

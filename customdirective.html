@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Custome Directive</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color:lightgray;
+            color:black;
+            text-align: center;
+            }
+        </style>
+    </head>
+    <body ng-app="customDir" class="container">
+        <div ng-controller="Controller">
+            <deepak-header page-title="pageTitle"></deepak-header>
+            <deepak-footer company-name="companyName"></deepak-footer>
+        </div>
+        <script src="angular.js"></script>
+        <script>
+            angular.module('customDir',[])
+                   .controller("Controller",['$scope',function ($scope) {
+                        $scope.pageTitle = "Custom Header";
+                        $scope.companyName="Aurionpro";
+                    }])
+                    .directive("deepakHeader", function () {
+                        return {
+                        restrict: 'E',
+                        pageTitle: '=',
+                        template: '<div class="jumbotron container"><h3>{{pageTitle}}</h3></div>'
+                        }
+                    })
+                    .directive("deepakFooter",function(){
+                            return{
+                                restrict: 'E',
+                                companyName: '=',
+                                template:'<div class="footer"><h3>{{companyName}}</h3></div>'
+                            }
+                    })
+        </script>
+    </body>
+</html>

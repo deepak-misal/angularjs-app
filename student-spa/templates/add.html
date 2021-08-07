@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Add</title>
+        <style>
+            .col-md-4{
+                background-color:lightsteelblue;
+                width: 600px;
+            }
+            .container{
+                margin-right: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <article>
+            <div class="container">
+                <div class="col-md-4 col-md-offset-4">
+                <h1 style="text-align: center;">REGISTRATION FORM</h1><br>
+                <form name="myForm">
+                    <div class="form-group">
+                        <label for="rollNo">Roll No:</label>
+                        <input type="text" class="form-control" id="rollNo" name="rollNo" placeholder="Roll NO" ng-required="true" ng-model="rollNo">
+                        <span style="color:red;" ng-show="myForm.rollNo.$touched && myForm.rollNo.$invalid">The Roll NO. is required.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" ng-required="true" ng-model="name">
+                        <span style="color:red;" ng-show="myForm.name.$touched && myForm.name.$invalid">The name is required.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="range" id="age"  class="form-control" name="age" min="0" max="50" value="0" oninput="amount.value=age.value" ng-model="age" required> 
+                        <output id="amount" name="amount" for="age">0</output>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email" ng-model="email" ng-required="true">
+                        <span style="color:red;" ng-show="myForm.email.$touched && myForm.email.$invalid">The email is required.</span>
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" ng-model="date"><br><br>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" class="radioBtnClass" name="gender" value="true" ng-model="gender"/>Male
+                        <input type="radio" class="radioBtnClass" name="gender" value="false" ng-model="gender"/>Female
+                    </div><br>
+                    <button type="submit" id="submit" ng-click="postData(rollNo,name,age,email,date,gender)" class="btn btn-primary">Submit</button>
+                </form>
+                </div>
+            </div>
+        </article>
+    </body>
+</html>

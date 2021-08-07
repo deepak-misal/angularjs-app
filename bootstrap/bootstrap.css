@@ -1,0 +1,32 @@
+.container-fluid{
+    padding: 50px;
+    
+}
+.col-log-3{
+    margin-top: 20px;
+    padding: 0 5px 0 5px;
+    
+}
+#heading{
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+#article{
+    background-color:mintcream;
+    padding: 30px;
+    border-radius: 25px;
+    height: 200px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.box{
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    background-clip:padding-box;  
+}
+body{
+    background-image: url("back2.jpg");
+    background-size: cover; 
+}
+
+

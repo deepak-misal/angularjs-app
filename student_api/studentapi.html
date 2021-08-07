@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Student API</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <style>
+            .col-md-4{
+                background-color:lightsteelblue;
+                width: 600px;
+            }
+            .container{
+                margin-right: 300px;
+            }
+        </style>
+    </head>
+    <body ng-app="modStudent" ng-controller="Controller">
+        <div class="container">
+            <div class="col-md-4 col-md-offset-4">
+            <h1 style="text-align: center;">REGISTRATION FORM</h1><br>
+            <form name="myForm">
+                <div class="form-group">
+                    <label for="rollNo">Roll No:</label>
+                    <input type="text" class="form-control" id="rollNo" name="rollNo" placeholder="Roll NO" ng-required="true" ng-model="rollNo">
+                    <span style="color:red;" ng-show="myForm.rollNo.$touched && myForm.rollNo.$invalid">The Roll NO. is required.</span>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" ng-required="true" ng-model="name">
+                    <span style="color:red;" ng-show="myForm.name.$touched && myForm.name.$invalid">The name is required.</span>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="range" id="age"  class="form-control" name="age" min="0" max="50" value="0" oninput="amount.value=age.value" ng-model="age" required> 
+                    <output id="amount" name="amount" for="age">0</output>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" ng-model="email" ng-required="true">
+                    <span style="color:red;" ng-show="myForm.email.$touched && myForm.email.$invalid">The email is required.</span>
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" ng-model="date"><br><br>
+                </div>
+                <div class="form-group">
+                    <input type="radio" class="radioBtnClass" name="gender" value="true" ng-model="gender"/>Male
+                    <input type="radio" class="radioBtnClass" name="gender" value="false" ng-model="gender"/>Female
+                </div><br>
+                <button type="submit" id="submit" ng-click="postData(rollNo,name,age,email,date,gender)" class="btn btn-primary">Submit</button>
+                <button ng-click="putData(id,rollNo,name,age,email,date,gender)" class="btn btn-primary">Update</button>
+            </form>
+            </div>
+        </div>
+        <div class="container1">
+            <h3>TOTAL STUDENTS : {{totalStudents}}</h3>
+            <table class="table table-striped table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>IsMale</th>
+                <th>Options</th>
+            </tr>
+            <tr ng-repeat="student in studentData">
+                <td>{{student.id}}</td>
+                <td>{{student.rollNo}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.age}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.date}}</td>
+                <td>{{student.isMale}}</td>
+                <td>
+                    <button id="select" ng-click="loadData(student.id,student.rollNo,student.name,student.age,student.email,student.date,student.isMale)"class="btn btn-success">Edit</button>
+                    <button id="delete" ng-click="deleteData(student.id)" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </table>
+        </div>
+        
+        <script src="angular.js"></script>
+        <script src="studentapi.js"></script>
+    </body>
+</html>

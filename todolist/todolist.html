@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>
+            To Do List
+        </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    </head>
+    <body ng-app="toDo" ng-controller="ToDoController">
+        <h1>To Do List</h1>
+        <input type="text" ng-model="task" >
+        <button ng-click="buttonClick()" class="btn btn-primary" >
+            <span class="glyphicon glyphicon-ok"></span>
+            Add Task</button>
+        <div id="taskList">
+            <ul>
+                <li ng-repeat="task in tasks">
+                    {{task.taskInfo}}
+                    <button ng-click="deleteTask(task)">X</button>
+                </li>
+            </ul>
+        </div>
+        <script src="angular.js"></script>
+        <script src="todolist.js"></script>
+    </body>
+</html>

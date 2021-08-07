@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Binding in Angular</title>
+    </head>
+    <body ng-app="binding-mod" ng-controller="MainController">
+        <section>
+            <h1>One Way Binding</h1>
+            <h1>{{student.roll}}</h1>
+            <h1>{{student.name}}</h1>
+            <h1>{{student.cgpa}}</h1>
+        </section>
+        <section>
+            <h1>Two Way Binding</h1>
+            <input type="text" ng-model="student.roll">
+            <input type="text" ng-model="student.name">
+            <input type="text" ng-model="student.cgpa">
+        </section>
+
+        <script src="angular.js"></script>
+        <script>
+            angular.module('binding-mod',[])
+                   .controller('MainController',['$scope',function($scope){
+                       $scope.student={
+                           roll:'101',
+                           name:'deepak',
+                           cgpa:9.06
+                       }
+                   }])
+        </script>
+        
+    </body>
+</html>

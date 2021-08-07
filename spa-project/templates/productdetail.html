@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Product Details</title>
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
+    </head>
+    <style>
+        .image{
+            position: relative;
+            top: -100px;
+            right: -406px;
+        }
+        .container{
+            border-color: blue;
+        }
+        .jumbotron{
+            background-color:darkturquoise;
+            height: 20px;
+        }
+        h4{
+            color: white;
+        }
+    </style>
+    <body>
+        <article>
+            <div class="container"style="border:1px solid blue;">
+                <div class="jumbotron"><h4>Product Detail: {{product.productName}}</h4></div>
+                <div>
+                    <p>Name: {{product.productName}}</p>
+                    <p>Code: {{product.productCode}}</p>
+                    <p>Availability: {{product.releaseDate}}</p>
+                    <p>Price: {{"$"+product.price}}</p>
+                    <p><input class="rating rating-loading" value="{{product.starRating}}" data-min="0" data-max="5" data-step="0.5" data-size="sm"></p>
+                    <img ng-src="{{product.imageUrl}}" class="image">
+                </div>
+            </div>
+        </article>
+    </body>
+</html>

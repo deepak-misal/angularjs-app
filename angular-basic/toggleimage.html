@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>
+            Toggle image by using Angularjs 
+        </title>
+    </head>
+    <body ng-app="imageToggler" ng-controller="ImageController">
+        <h1>Image Toggler by Angularjs</h1>
+        <div ng-show="IsVisible">
+            <img src="itachi.jpg" width="500" height="500">
+        </div>
+        <input type="button" value="Toggle Image" ng-click="ShowHide()" />
+        <script src="angular.js"></script>
+        <script>
+            angular.module('imageToggler',[])
+                   .controller('ImageController',['$scope',function($scope){
+                       $scope.IsVisible=true;
+                       $scope.ShowHide = function () {
+                            $scope.IsVisible = $scope.IsVisible ? false : true;
+                        }
+                   }])
+        </script>
+        
+    </body>
+</html>

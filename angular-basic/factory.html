@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Factory in Angularjs</title>
+    </head>
+    <body ng-app="modF" ng-controller='ControllerF'>
+        <button ng-click='generateRandom()'>Generate Random</button>
+        <h1>{{msg}}</h1>
+        <h1>{{randomNumber}}</h1>
+        <script src="angular.js"></script>
+        <script>
+           var application = angular.module('modF', []);
+  
+            application.factory('random', function() {
+                var randomObject = {};
+                var number = Math.floor(Math.random() * 100);
+                 randomObject.generate = function() {
+                    return number;
+                };
+                return randomObject;
+            });
+  
+            application.controller('ControllerF', function($scope, random) {
+                $scope.generateRandom = function() {
+                    $scope.randomNumber = random.generate();
+            };
+            });
+        </script>
+    </body>
+</html>

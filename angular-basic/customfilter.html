@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Custom Filter</title>
+    </head>
+    <body ng-app='modC' ng-controller='myctl'>
+        <h1>{{Items}}</h1>
+        <button ng-click='myfunction()'>Reverse</button>
+        <h1>{{result}}</h1>
+        <script src="angular.js"></script>
+        <script>
+            var application=angular.module('modC',[]);
+            
+            application.filter("CustomFilter", function () {
+            return function (input) {
+            var out = [];
+            for (var i = input.length - 1; i >= 0 ; i--) {
+                out.push(input[i]);
+            }
+            return out;
+            }
+            });
+
+            application.controller("myctl", function ($scope, $filter) {
+                $scope.Items = ["C#", "JavaScript", "Html"];
+
+                $scope.myfunction = function () {
+                    $scope.result = $filter('CustomFilter')($scope.Items);
+                }
+            })
+        </script>
+    </body>
+</html>
